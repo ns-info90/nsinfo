@@ -1,5 +1,8 @@
 # CHANGELOG NSINFO FOR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
+## 2.0.5
+- Réglage entrepot
+
 ## 2.0.4
 - Ajout de fonction de gestion de mail
 

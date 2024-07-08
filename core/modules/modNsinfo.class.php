@@ -51,7 +51,7 @@ class modNsinfo extends DolibarrModules
 		$this->descriptionlong = "Nsinfo description (Long)";
 		$this->editor_name = 'NS INFO';
 		$this->editor_url = 'https://www.ns-info.fr';
-		$this->version = '2.0.4';
+		$this->version = '2.0.5';
 		$this->url_last_version = 'https://www.ns-info.fr/dolibarr/ver.php?m=nsinfo';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'nsinfo@nsinfo';

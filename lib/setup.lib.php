@@ -192,8 +192,9 @@ function nsinfoSetup($arrayofparameters)
 					print '<td>';
 					print '<form method="post" action="' . $_SERVER['PHP_SELF'] . '" style="display: inline;">';
 					print '<input type="hidden" name="token" value="' . $_SESSION['newtoken'] . '">';
-					print '<input type="hidden" name="action" value="set_selectwh" />';
-					print '<input type="hidden" name="var" value="' . $key . '" />';
+					print '<input type="hidden" name="action" value="listsel" />';
+					print '<input type="hidden" name="varlst" value="' . $key . '" />';
+//					var_dump(getDolGlobalInt($key));
 					print $formproduct->selectWarehouses(getDolGlobalInt($key), $key, '', 1, 0, 0, '', 0, 0, array(), $css);
 					print '&emsp;';
 					print '</td><td>';
