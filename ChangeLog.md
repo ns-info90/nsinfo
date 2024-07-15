@@ -1,5 +1,8 @@
 # CHANGELOG NSINFO FOR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
+## 2.0.6
+- Réglage supplémentaire sélection de produit
+
 ## 2.0.5
 - Réglage entrepot
 
