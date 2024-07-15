@@ -581,6 +581,7 @@ function nsinfoSetup($arrayofparameters)
 					$size = !empty($desc['size']) ? $desc['size'] : 0;
 					$css = !empty($desc['css']) ? $desc['css'] : '';
 					$filtre = !empty($desc['filtre']) ? $desc['filtre'] : '';
+					$status = !empty($desc['status']) ? $desc['status'] : 1;
 					print '<tr class="oddeven"><td>';
 					print !empty($desc['Tooltip']) ? $form->textwithpicto($langs->trans($key), $langs->trans($key . '_Tooltip')) : $langs->transnoentitiesnoconv($key);
 					print '</td>';
@@ -590,7 +591,7 @@ function nsinfoSetup($arrayofparameters)
 					print '<input type="hidden" name="token" value="' . $_SESSION['newtoken'] . '">';
 					print '<input type="hidden" name="action" value="listsel" />';
 					print '<input type="hidden" name="varlst" value="' . $key . '" />';
-					print $form->select_produits(getDolGlobalInt($key), $key, $filtre, 0, 0, 1, 2, '', 0, array(), 0, 1, 0, $css);
+					print $form->select_produits(getDolGlobalInt($key), $key, $filtre, 0, 0, $status, 2, '', 0, array(), 0, 1, 0, $css);
 					print '&emsp;';
 					print '</td><td>';
 					print '<input type="submit" class="button" value="' . $langs->trans("Update") . '" />';
