@@ -95,7 +95,7 @@ print '<td align="left" valign="top"><p>' . $langs->trans("NSINFOAboutDesc1") .
 											$langs->trans("NSINFOAboutDesc2").
 											$langs->trans("NSINFOAboutDesc3").
 											$langs->trans("NSINFOAboutDesc4");
-if (strlen($langs->transnoentities("NSINFOAboutDesc5")) > 16) print $langs->transnoentities("NSINFOAboutDesc5");
+if (strlen($langs->transnoentities("NSINFOAboutDesc5")) > 16 && $namemodule == 'gmao') print $langs->transnoentities("NSINFOAboutDesc5");
 print '</p></td>' . "\n";
 
 print '</tr></table>' . "\n";

@@ -88,6 +88,7 @@ dol_include_once('/'.$namemodule.'/core/modules/mod'.ucfirst($namemodule).'.clas
 
 $nameMod = "mod".$modM;
 $tmpmodule = new $nameMod($db);
+
 print '<a href="https://www.ns-info.fr" border=0 target="_blank"><img src="../img/nsinfo.png" width="200" align="right"></a>';
 print $tmpmodule->getChangeLog();
 
