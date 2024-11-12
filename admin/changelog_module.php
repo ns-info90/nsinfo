@@ -53,7 +53,9 @@ $namemodule = GETPOST('namemodule', 'alpha');
 
 $modM = ucfirst($namemodule);
 
-dol_include_once('/'.$namemodule.'/lib/'.$namemodule.'.lib.php');
+
+if ($namemodule == 'factory') dol_include_once('/'.$namemodule.'/core/lib/'.$namemodule.'.lib.php');
+else dol_include_once('/'.$namemodule.'/lib/'.$namemodule.'.lib.php');
 // Translations
 $langs->loadLangs(array("errors", "admin", "dpersoplus@dpersoplus", "nsinfo@nsinfo", "${namemodule}@${namemodule}"));
 
@@ -79,7 +81,9 @@ $linkback = '<a href="'.($backtopage ? $backtopage : DOL_URL_ROOT.'/admin/module
 print load_fiche_titre($langs->trans($page_name), $linkback, "object_${namemodule}@${namemodule}");
 
 // Configuration header
-$namehead = $namemodule."AdminPrepareHead";
+
+if ($namemodule == 'factory') $namehead = 'factory_admin_prepare_head';
+else $namehead = $namemodule."AdminPrepareHead";
 $head = $namehead();
 
 print dol_get_fiche_head($head, 'changelog', $langs->trans("ChangeLog"), -1, "${namemodule}@${namemodule}");
@@ -93,6 +97,7 @@ print '<a href="https://www.ns-info.fr" border=0 target="_blank"><img src="../im
 print $tmpmodule->getChangeLog();
 
 // Page end
-dol_fiche_end();
+print dol_get_fiche_end();
+//dol_fiche_end();
 llxFooter();
 $db->close();

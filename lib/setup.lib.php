@@ -257,6 +257,15 @@ function nsinfoSetup($arrayofparameters)
                                                     <td>&emsp;</td></tr>';
 					break;
 
+				case 'tabdeb2' :
+					print '<form method="POST" action="' . $_SERVER["PHP_SELF"] . '">';
+					print '<input type="hidden" name="token" value="' . newToken() . '">';
+					print '<table class="tablens noborder" width="100%">';
+					print '<tr class="nstabletitle">	<td>' . $langs->trans("Parameter") . '</td>
+                                                    <td>' . $langs->trans("Visible") . '</td>
+                                                    <td>' . $langs->trans("Obligatoire") . '</td></tr>';
+					break;
+
 				case 'tabfin' :
 					print '</table>';
 					print '</form>';
@@ -293,12 +302,48 @@ function nsinfoSetup($arrayofparameters)
 					print '</td>';
 					break;
 
+				case 'bool2' :
+					$const_prefixe = !empty($desc['const_prefixe']) ? $desc['const_prefixe'].'_' : '';
+//					$key = strtoupper($key);
+
+					print '<tr class="oddeven">';
+					print '<td>';
+					print !empty($desc['Tooltip']) ? $form->textwithpicto($langs->trans($key), $langs->trans($key . '_Tooltip')) : $langs->transnoentitiesnoconv($key);
+					print '</td>';
+					print '<td>';
+					if (!empty($conf->use_javascript_ajax)) {
+						print ajax_constantonoff($const_prefixe.strtoupper($key).'_VISIBLE', '', $conf->entity);
+					} else {
+						if (empty(getDolGlobalInt($const_prefixe.strtoupper($key).'_VISIBLE')))
+							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=set_' . $key . '&var=' . $const_prefixe.strtoupper($key).'_VISIBLE' . '">' . img_picto($langs->trans("Disabled"), 'switch_off') . '</a>';
+						else
+							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=del_' . $key . '&var=' . $const_prefixe.strtoupper($key). '_VISIBLE' . '">' . img_picto($langs->trans("Enabled"), 'switch_on') . '</a>';
+					}
+					print '</td>';
+					print '<td>';
+					if (!empty($conf->use_javascript_ajax)) {
+						print ajax_constantonoff($const_prefixe.strtoupper($key).'_NOTNULL', '', $conf->entity);
+					} else {
+						if (empty(getDolGlobalInt($const_prefixe.strtoupper($key).'_NOTNULL')))
+							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=set_' . $key . '&var=' . $const_prefixe.strtoupper($key).'_NOTNULL' . '">' . img_picto($langs->trans("Disabled"), 'switch_off') . '</a>';
+						else
+							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=del_' . $key . '&var=' . $const_prefixe.strtoupper($key).'_NOTNULL' . '">' . img_picto($langs->trans("Enabled"), 'switch_on') . '</a>';
+					}
+					print '</td>';
+					break;
+
 				case "rec" :
+					$btupdate = !empty($desc['btupdate']) ? $desc['btupdate'] : 0;
 					print '<tr class="oddeven">';
 					print '<td>';
 //					print
 					print '</td>';
 					print '<td>';
+					if (!empty($btupdate)) {
+						print '<form method="post" action="' . $_SERVER['PHP_SELF'] . '" style="display: inline;">';
+						print '<input type="hidden" name="token" value="' . $_SESSION['newtoken'] . '">';
+						print '<input type="hidden" name="action" value="btupdate" />';
+					}
 					print '<input type="submit" class="button" value="' . $langs->trans("Update") . '" />';
 					print '</td>';
 					print '</td><td>';
@@ -417,12 +462,16 @@ function nsinfoSetup($arrayofparameters)
 					break;
 
 				case "sellist" :
+					$rootfile = $desc['rootfile'];
+					$rootlib = $desc['rootlib'];
 					$size = !empty($desc['size']) ? $desc['size'] : 0;
 					$arrayval = !empty($desc['arrayval']) ? $desc['arrayval'] : '';
-					$css = !empty($desc['css']) ? $desc['css'] : '';
+//					$css = !empty($desc['css']) ? $desc['css'] : '';
+					$css = !empty($desc['css']) ? $desc['css'] : 'minwidth300';
 					$show_empty = !empty($desc['show_empty']) ? $desc['show_empty'] : 0;
 					print '<tr class="oddeven"><td>';
 					print !empty($desc['Tooltip']) ? $form->textwithpicto($langs->trans($key), $langs->trans($key . '_Tooltip')) : $langs->transnoentitiesnoconv($key);
+					if (!empty($rootfile)) print ' <a href="' . $rootfile . '" target="_blank">' . $rootlib . '</a></>';
 					print '</td>';
 
 					print '<td>';
@@ -449,12 +498,15 @@ function nsinfoSetup($arrayofparameters)
 					break;
 
 				case "selliststring" :
+					$rootfile = $desc['rootfile'];
+					$rootlib = $desc['rootlib'];
 					$size = !empty($desc['size']) ? $desc['size'] : 0;
 					$arrayval = !empty($desc['arrayval']) ? $desc['arrayval'] : '';
 					$css = !empty($desc['css']) ? $desc['css'] : '';
 					$show_empty = !empty($desc['show_empty']) ? $desc['show_empty'] : 0;
 					print '<tr class="oddeven"><td>';
 					print !empty($desc['Tooltip']) ? $form->textwithpicto($langs->trans($key), $langs->trans($key . '_Tooltip')) : $langs->transnoentitiesnoconv($key);
+					if (!empty($rootfile)) print ' <a href="' . $rootfile . '" target="_blank">' . $rootlib . '</a></>';
 					print '</td>';
 					print '<td>';
 					print '<form method="post" action="' . $_SERVER['PHP_SELF'] . '" style="display: inline;">';

@@ -1,5 +1,20 @@
 # CHANGELOG NSINFO FOR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
+## 2.0.12
+- Menu permettant d'activer ou non des champs
+
+## 2.0.11
+- Ajout bouton modifier avec action specifique ('type' => 'rec', 'btupdate'=>'btupdate')
+
+## 2.0.10
+- Ajout de fonction au niveau de l'admin
+
+## 2.0.9
+- Intégration des spécifiques modules
+
+## 2.0.8
+- Fix Css
+
 ## 2.0.7
 - Modification onglet A propos
 
