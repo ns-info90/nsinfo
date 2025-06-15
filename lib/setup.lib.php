@@ -109,7 +109,7 @@ function Listmodelmail($user, $typecmde, $outputlangs)
 	$result = $listemodel->fetchAllEMailTemplate($typecmde, $user, $outputlangs);
 
 	if ($result > 0) {
-		$modelmail_array[0] = '';
+		$modelmail_array[0]='';
 		foreach ($listemodel->lines_model as $line) {
 			$reg = array();
 			if (preg_match('/\((.*)\)/', $line->label, $reg)) {
@@ -142,7 +142,6 @@ function nsinfoSetup($arrayofparameters)
 	$formother = new FormOther($db);
 	$form = new Form($db);
 
-	$key = '';
 
 	if (!empty($arrayofparameters)) {
 		$desc = array();
@@ -304,7 +303,7 @@ function nsinfoSetup($arrayofparameters)
 					break;
 
 				case 'bool2' :
-					$const_prefixe = !empty($desc['const_prefixe']) ? $desc['const_prefixe'] . '_' : '';
+					$const_prefixe = !empty($desc['const_prefixe']) ? $desc['const_prefixe'].'_' : '';
 //					$key = strtoupper($key);
 
 					print '<tr class="oddeven">';
@@ -313,22 +312,22 @@ function nsinfoSetup($arrayofparameters)
 					print '</td>';
 					print '<td>';
 					if (!empty($conf->use_javascript_ajax)) {
-						print ajax_constantonoff($const_prefixe . strtoupper($key) . '_VISIBLE', '', $conf->entity);
+						print ajax_constantonoff($const_prefixe.strtoupper($key).'_VISIBLE', '', $conf->entity);
 					} else {
-						if (empty(getDolGlobalInt($const_prefixe . strtoupper($key) . '_VISIBLE')))
-							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=set_' . $key . '&var=' . $const_prefixe . strtoupper($key) . '_VISIBLE' . '">' . img_picto($langs->trans("Disabled"), 'switch_off') . '</a>';
+						if (empty(getDolGlobalInt($const_prefixe.strtoupper($key).'_VISIBLE')))
+							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=set_' . $key . '&var=' . $const_prefixe.strtoupper($key).'_VISIBLE' . '">' . img_picto($langs->trans("Disabled"), 'switch_off') . '</a>';
 						else
-							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=del_' . $key . '&var=' . $const_prefixe . strtoupper($key) . '_VISIBLE' . '">' . img_picto($langs->trans("Enabled"), 'switch_on') . '</a>';
+							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=del_' . $key . '&var=' . $const_prefixe.strtoupper($key). '_VISIBLE' . '">' . img_picto($langs->trans("Enabled"), 'switch_on') . '</a>';
 					}
 					print '</td>';
 					print '<td>';
 					if (!empty($conf->use_javascript_ajax)) {
-						print ajax_constantonoff($const_prefixe . strtoupper($key) . '_NOTNULL', '', $conf->entity);
+						print ajax_constantonoff($const_prefixe.strtoupper($key).'_NOTNULL', '', $conf->entity);
 					} else {
-						if (empty(getDolGlobalInt($const_prefixe . strtoupper($key) . '_NOTNULL')))
-							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=set_' . $key . '&var=' . $const_prefixe . strtoupper($key) . '_NOTNULL' . '">' . img_picto($langs->trans("Disabled"), 'switch_off') . '</a>';
+						if (empty(getDolGlobalInt($const_prefixe.strtoupper($key).'_NOTNULL')))
+							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=set_' . $key . '&var=' . $const_prefixe.strtoupper($key).'_NOTNULL' . '">' . img_picto($langs->trans("Disabled"), 'switch_off') . '</a>';
 						else
-							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=del_' . $key . '&var=' . $const_prefixe . strtoupper($key) . '_NOTNULL' . '">' . img_picto($langs->trans("Enabled"), 'switch_on') . '</a>';
+							print '<a href="' . $_SERVER['PHP_SELF'] . '?action=del_' . $key . '&var=' . $const_prefixe.strtoupper($key).'_NOTNULL' . '">' . img_picto($langs->trans("Enabled"), 'switch_on') . '</a>';
 					}
 					print '</td>';
 					break;
@@ -431,37 +430,6 @@ function nsinfoSetup($arrayofparameters)
 					print '&emsp;';
 					print '<input type="submit" class="button" value="' . $langs->trans("SetDefault") . '" />';
 					print '</form>';
-					print '</td>';
-					break;
-
-				case "textarea" :
-					$size = 0;
-					$size = $desc['size'];
-//					$typetexte = empty($desc['typetext']) ? 'text' : $desc['typetext'];
-					$cols = empty($desc['cols']) ? 55 : $desc['cols'];
-					$rows = empty($desc['rows']) ? 5 : $desc['rows'];
-
-					print '<tr class="oddeven"><td>';
-					print !empty($desc['Tooltip']) ? $form->textwithpicto($langs->transnoentitiesnoconv($key), $langs->trans($key . '_Tooltip')) : $langs->transnoentitiesnoconv($key);
-					print '</td>';
-
-					print '<td>';
-					print '<form method="post" action="' . $_SERVER['PHP_SELF'] . '" style="display: inline;">';
-					print '<input type="hidden" name="token" value="' . $_SESSION['newtoken'] . '">';
-					print '<input type="hidden" name="action" value="settxt" />';
-					print '<input type="hidden" name="vartxtadv" value="' . $key . '" />';
-					print '<textarea name="' . $key . '" cols= "' . $cols . '" rows= "' . $rows . '" value="' . getDolGlobalString($key) . '" />'.getDolGlobalString($key).'</textarea>';
-					print '&emsp;';
-					print '</td><td>';
-					print '<input type="submit" class="button" value="' . $langs->trans("Update") . '" />';
-					print '</form>';
-//					print '<form method="post" action="' . $_SERVER['PHP_SELF'] . '" style="display: inline;">';
-//					print '<input type="hidden" name="token" value="' . $_SESSION['newtoken'] . '">';
-//					print '<input type="hidden" name="action" value="reset" />';
-//					print '<input type="hidden" name="var" value="' . $key . '" />';
-//					print '&emsp;';
-//					print '<input type="submit" class="button" value="' . $langs->trans("SetDefault") . '" />';
-//					print '</form>';
 					print '</td>';
 					break;
 
@@ -766,7 +734,6 @@ function nsinfoAction($action, $var, $value, $vartxt, $varround, $valuetxt, $def
 	} elseif ($action == 'listselstrg' && !empty($varlist)) {
 		dolibarr_set_const($db, $varlist, GETPOST($varlist, 'alpha'), 'chaine', 0, '', $conf->entity);
 	}
-
 }
 
 /**
@@ -798,70 +765,6 @@ function getDictionaryCode($table, $id)
 	}
 	$db->free($resql);
 	return $res;
-
-}
-
-
-/**
- * Check user access on current page
- *
- * @param object|bool $permission        Permission to access to current page
- * @param object|null $object            Object in current page
- * @param bool        $allowExternalUser Allow external user to have access at current page
- */
-function nsinfo_check_access($permission, object $object = null, bool $allowExternalUser = false)
-{
-	global $conf, $langs, $user, $moduleNameLowerCase;
-
-
-	if (empty($moduleNameLowerCase)) {
-		$moduleNameLowerCase = 'nsinfo';
-	}
-
-	if (!$user->admin) {
-		if (!$permission) accessforbidden();
-	}
-
-	if (!$allowExternalUser) {
-		if ($user->socid > 0) {
-			accessforbidden();
-		}
-	}
-
-	if (isModEnabled('multicompany')) {
-		if ($object->id > 0) {
-			if ($object->entity != $conf->entity) {
-				setEventMessage($langs->trans('ChangeEntityRedirection'), 'warnings');
-				$urltogo = dol_buildpath('/custom/' . $moduleNameLowerCase . '/' . $moduleNameLowerCase . 'index.php?mainmenu=' . $moduleNameLowerCase, 1);
-				header('Location: ' . $urltogo);
-				exit;
-			}
-		}
-	}
-}
-
-function getVersionModule($namemodule)
-{
-	global $db;
-
-	$modM = ucfirst($namemodule);
-	$nameMod = 'mod'.$modM;
-//var_dump($nameMod);
-	if ($namemodule == 'factory') {
-		dol_include_once('/'.$namemodule.'/core/lib/'.$namemodule.'.lib.php');
-	}
-	else {
-		dol_include_once('/'.$namemodule.'/lib/'.$namemodule.'.lib.php');
-	}
-	dol_include_once('/'.$namemodule.'/core/modules/'.$nameMod.'.class.php');
-
-	$modClass = new $nameMod($db);
-	$constantLastVersion = !empty($modClass->getVersion()) ? $modClass->getVersion() : 'NC';
-
-	if (getDolGlobalString('NSINFO_VERSIONMODULE')) return 'Version: ' .$constantLastVersion;
-	else return '';
-//	print 'Version: ' . $constantLastVersion;
-
 
 }
 

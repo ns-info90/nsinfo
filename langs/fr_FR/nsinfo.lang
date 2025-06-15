@@ -20,26 +20,20 @@
 # Module label 'ModuleNsinfoName'
 ModuleNsinfoName = Nsinfo
 # Module description 'ModuleNsinfoDesc'
-ModuleNsinfoDesc = Framework de fonctions liées aux modules et développement NSINFO
+ModuleNsinfoDesc = Bibliothèque de fonctions liée aux modules et développement NS INFO
 
-NSINFOAboutDesc1=Ce module a été développé par <b><a href ="https://www.ns-info.fr/" target="_blank">NSINFO SARL</a></b>
+NSINFOAboutDesc1=Ce module a été développé par <b><a href ="https://www.ns-info.fr/" target="_blank">NS INFO</a></b>
 NSINFOAboutDesc2=<br>Documentation des modules <b><a href="https://www.ns-info.fr/documentation/" target="_blank">Wiki</a></b>
 NSINFOAboutDesc3=<br>Pour toute question commerciale ou technique ou un retour,
-NSINFOAboutDesc4=<br>Contactez-nous sur <b><a href="mailto:contact@ns-info.fr">contact@ns-info.fr</a></b> ou
-NSINFOAboutDesc45=<b>notre support</b>
+NSINFOAboutDesc4=<br>Contactez-nous sur <b><a href="mailto:contact@ns-info.fr">contact@ns-info.fr</a></b> ou <b><a href="https://gestdoli.ns-info90.fr/public/ticket/index.php?entity=1" target="_blank">directement en déclarant un incident ici</a></b>
 
-NSINFOAboutDescDolistore=Retrouver tous nos modules dans le
 
 #
 # Page d'administration
 #
 NsinfoSetup = Configuration du module Nsinfo
 
-NsinfoSetupPage = NSINFO - Paramètres
-
-NSINFO_VERSIONMODULE=Afficher la version du module visible (si  possible)
-NSINFO_LASTVERSION=Désactiver la recherche de la version des modules
-
+NsinfoSetupPage = Page de configuration du module Nsinfo
 
 #
 # Page À propos
