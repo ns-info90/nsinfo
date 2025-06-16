@@ -1,5 +1,43 @@
 # CHANGELOG NSINFO FOR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
+## 4.0.2 - 15/06/2025
+- Intégration à GitHub
+
+## 4.0.1 - 23/05/2025
+- Verif version Dolibarr pour la fonction isModEnabled
+
+## 4.0.0 - 15/05/2025
+- Création d'un setup
+- Options:
+  - Afficher la version du module visible (si possible)
+  - Désactiver la recherche de la version des modules
+
+- Ajout d'une fonctionnalité permettant au module GMAO d'accèder à la partie admin avec un droit particulier
+
+## 3.0.1 - 23/04/2025
+- Ajout d'un  champ textarera pour les réglages
+
+## 3.0.0 - 06/04/2025
+- Mise à jour des info SARL
+- Changement de l'icône du ChangeLog
+- Modification de la partie Support
+- Modification de l'A Propos (page commune des modules)
+
+## 2.1.1
+- Ajout retro fonctionnalité
+
+## 2.1.0
+- MAJ PHP 8
+
+## 2.0.15
+- Correction A propos pour Factory
+
+## 2.0.14
+- Personnalisation ChangeLog & A propos en fonction du module
+
+## 2.0.13
+- Correction Php8.2
+
 ## 2.0.12
 - Menu permettant d'activer ou non des champs
 

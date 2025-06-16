@@ -41,10 +41,9 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
 
 dol_include_once('/nsinfo/lib/nsinfo.lib.php');
+dol_include_once('/nsinfo/lib/setup.lib.php');
 
 
-// Access control
-if (!$user->admin) accessforbidden();
 
 // Parameters
 $action = GETPOST('action', 'alpha');
@@ -53,11 +52,16 @@ $namemodule = GETPOST('namemodule', 'alpha');
 
 $modM = ucfirst($namemodule);
 
-
+// Access control
+if ($namemodule == 'gmao') {
+	$permissiontoread=$user->rights->gmao->gmao->admin;
+	nsinfo_check_access($permissiontoread);
+}
+else if (!$user->admin) accessforbidden();
 if ($namemodule == 'factory') dol_include_once('/'.$namemodule.'/core/lib/'.$namemodule.'.lib.php');
 else dol_include_once('/'.$namemodule.'/lib/'.$namemodule.'.lib.php');
 // Translations
-$langs->loadLangs(array("errors", "admin", "dpersoplus@dpersoplus", "nsinfo@nsinfo", "${namemodule}@${namemodule}"));
+$langs->loadLangs(array("errors", "admin", "dpersoplus@dpersoplus", "nsinfo@nsinfo", "{$namemodule}@{$namemodule}"));
 
 /*
  * Actions
@@ -71,14 +75,15 @@ $langs->loadLangs(array("errors", "admin", "dpersoplus@dpersoplus", "nsinfo@nsin
  */
 
 $form = new Form($db);
+$module=$langs->trans("Module".ucfirst("{$namemodule}")."Name");
 
-$page_name = "ChangeLog";
+$page_name = $module . " - ChangeLog";
 llxHeader('', $langs->trans($page_name));
 
 // Subheader
 $linkback = '<a href="'.($backtopage ? $backtopage : DOL_URL_ROOT.'/admin/modules.php?restore_lastsearch_values=1').'">'.$langs->trans("BackToModuleList").'</a>';
 
-print load_fiche_titre($langs->trans($page_name), $linkback, "object_${namemodule}@${namemodule}");
+print load_fiche_titre($langs->trans($page_name), $linkback, "object_{$namemodule}@{$namemodule}");
 
 // Configuration header
 
@@ -86,7 +91,7 @@ if ($namemodule == 'factory') $namehead = 'factory_admin_prepare_head';
 else $namehead = $namemodule."AdminPrepareHead";
 $head = $namehead();
 
-print dol_get_fiche_head($head, 'changelog', $langs->trans("ChangeLog"), -1, "${namemodule}@${namemodule}");
+print dol_get_fiche_head($head, 'changelog', $langs->trans("ChangeLog"), -1, "{$namemodule}@{$namemodule}");
 
 dol_include_once('/'.$namemodule.'/core/modules/mod'.ucfirst($namemodule).'.class.php');
 
