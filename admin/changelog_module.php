@@ -106,7 +106,8 @@ var_dump($pathoffile);
 $content = file_get_contents($pathoffile);
 @include_once DOL_DOCUMENT_ROOT . '/core/lib/parsemd.lib.php';
 $content = dolMd2Html($content, 'parsedown', array('doc/' => $moduleUrlPath . '/doc/'));
-//print $tmpmodule->getChangeLog();
+print $content;
+
 
 // Page end
 print dol_get_fiche_end();
