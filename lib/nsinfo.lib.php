@@ -35,12 +35,16 @@ function nsinfoAdminPrepareHead()
 	$h = 0;
 	$head = array();
 
+	$head[$h][0] = dol_buildpath("/nsinfo/admin/setup.php", 1);
+	$head[$h][1] = '<i class="fas fa-cogs paddingright pictofixedwidth valignmiddle"></i>' . $langs->trans("Settings");
+	$head[$h][2] = 'settings';
+	$h++;
 	$head[$h][0] = dol_buildpath("/nsinfo/admin/changelog.php", 1);
-	$head[$h][1] = $langs->trans("ChangeLog");
+	$head[$h][1] = '<i class="fas fa-code-branch paddingright pictofixedwidth valignmiddle"></i>' . $langs->trans("ChangeLog");
 	$head[$h][2] = 'changelog';
 	$h++;
 	$head[$h][0] = dol_buildpath("/nsinfo/admin/about.php", 1);
-	$head[$h][1] = $langs->trans("About");
+	$head[$h][1] = '<i class="fab fa-readme paddingright pictofixedwidth valignmiddle"></i>' . $langs->trans("About");
 	$head[$h][2] = 'about';
 	$h++;
 
@@ -48,3 +52,5 @@ function nsinfoAdminPrepareHead()
 
 	return $head;
 }
+
+

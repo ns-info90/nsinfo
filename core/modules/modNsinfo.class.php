@@ -51,7 +51,7 @@ class modNsinfo extends DolibarrModules
 		$this->descriptionlong = "Nsinfo description (Long)";
 		$this->editor_name = 'NS INFO';
 		$this->editor_url = 'https://www.ns-info.fr';
-		$this->version = '2.0.12';
+		$this->version = '4.0.3';
 		$this->url_last_version = 'https://www.ns-info.fr/dolibarr/ver.php?m=nsinfo';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->picto = 'nsinfo@nsinfo';
@@ -63,7 +63,7 @@ class modNsinfo extends DolibarrModules
 		// Example: this->dirs = array("/nsinfo/temp","/nsinfo/subdir");
 		$this->dirs = array("/nsinfo/temp");
 		// Config pages. Put here list of php page, stored into nsinfo/admin directory, to use to setup module.
-		$this->config_page_url = array("changelog.php@nsinfo");
+		$this->config_page_url = array("setup.php@nsinfo");
 		// Dependencies
 		// A condition to hide module
 		$this->hidden = false;
@@ -77,7 +77,7 @@ class modNsinfo extends DolibarrModules
 		$this->warnings_activation = array(); // Warning to show when we activate module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 		$this->warnings_activation_ext = array(); // Warning to show when we activate an external module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 		//$this->automatic_activation = array('FR'=>'NsinfoWasAutomaticallyActivatedBecauseOfYourCountryChoice');
-		//$this->always_enabled = true;								// If true, can't be disabled
+
 
 		$this->const = array();
 

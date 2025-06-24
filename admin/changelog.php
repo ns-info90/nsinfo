@@ -66,7 +66,7 @@ $backtopage = GETPOST('backtopage', 'alpha');
 
 $form = new Form($db);
 
-$page_name = "ChangeLog";
+$page_name = "NsinfoSetupPage";
 llxHeader('', $langs->trans($page_name));
 
 // Subheader
@@ -76,7 +76,7 @@ print load_fiche_titre($langs->trans($page_name), $linkback, 'object_nsinfo@nsin
 
 // Configuration header
 $head = nsinfoAdminPrepareHead();
-print dol_get_fiche_head($head, 'changelog', $langs->trans("ChangeLog"), -1, "nsinfo@nsinfo");
+print dol_get_fiche_head($head, 'changelog', $langs->trans("ChangeLog"), -1, "boulensinfo.png@nsinfo");
 
 dol_include_once('/nsinfo/core/modules/modNsinfo.class.php');
 
