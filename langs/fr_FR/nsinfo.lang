@@ -35,7 +35,7 @@ NSINFOAboutDescDolistore=Retrouver tous nos modules dans le
 #
 NsinfoSetup = Configuration du module Nsinfo
 
-NsinfoSetupPage = NSINFO - Paramètres
+NsinfoSetupPage = NSINFO - Framework
 
 NSINFO_VERSIONMODULE=Afficher la version du module visible (si  possible)
 NSINFO_LASTVERSION=Désactiver la recherche de la version des modules

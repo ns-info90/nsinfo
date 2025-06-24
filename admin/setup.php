@@ -110,18 +110,19 @@ $page_name = "NsinfoSetupPage";
 $namemodule="nsinfo";
 $module=$langs->trans("Module".ucfirst("{$namemodule}")."Name");
 
-$page_name = $module . " - ".$langs->trans("About");
+//$page_name = $module . " - ".$langs->trans("About");
 
 llxHeader('', $langs->trans($page_name), $help_url);
 
 // Subheader
 $linkback = '<a href="'.($backtopage ? $backtopage : DOL_URL_ROOT.'/admin/modules.php?restore_lastsearch_values=1').'">'.$langs->trans("BackToModuleList").'</a>';
 
+
 print load_fiche_titre($langs->trans($page_name), $linkback, 'object_nsinfo@nsinfo');
 
 // Configuration header
 $head = nsinfoAdminPrepareHead();
-print dol_get_fiche_head($head, 'settings', $langs->trans($page_name), -1, "nsinfo@nsinfo");
+print dol_get_fiche_head($head, 'settings', $langs->trans($page_name), -1, "boulensinfo.png@nsinfo");
 
 nsinfoSetup($arrayofparameters);
 //nsinfoSetup($arrayofparameters2);

@@ -75,7 +75,8 @@ $supportvalue.= "Description de votre problème :"."<br>";
 
 $form = new Form($db);
 
-$page_name = "NsinfoAbout";
+$page_name = "NsinfoSetupPage";
+
 llxHeader('', $langs->trans($page_name));
 
 // Subheader
@@ -85,7 +86,8 @@ print load_fiche_titre($langs->trans($page_name), $linkback, 'object_nsinfo@nsin
 
 // Configuration header
 $head = nsinfoAdminPrepareHead();
-dol_fiche_head($head, 'about', '', 0, 'nsinfo@nsinfo');
+//dol_fiche_head($head, 'about', '', 0, 'nsinfo@nsinfo');
+print dol_get_fiche_head($head, 'about', $langs->trans("about"), -1, "boulensinfo.png@nsinfo");
 
 dol_include_once('/nsinfo/core/modules/modNsinfo.class.php');
 $tmpmodule = new modNsinfo($db);
