@@ -340,9 +340,9 @@ function nsinfoSetup($arrayofparameters)
                     print '</td>';
                     print '<td>';
                     if (empty(getDolGlobalInt($key)))
-                        print '<a href="' . $_SERVER['PHP_SELF'] . '?action=set_' . $key . '&var=' . $key . '">' . img_picto($langs->trans("Disabled"), 'switch_off') . '</a>';
+                        print '<a href="' . $_SERVER['PHP_SELF'] . '?action=set_' . $key . '&var=' . $key . '&token='.$_SESSION['newtoken'].'">' . img_picto($langs->trans("Disabled"), 'switch_off') . '</a>';
                     else
-                        print '<a href="' . $_SERVER['PHP_SELF'] . '?action=del_' . $key . '&var=' . $key . '">' . img_picto($langs->trans("Enabled"), 'switch_on') . '</a>';
+                        print '<a href="' . $_SERVER['PHP_SELF'] . '?action=del_' . $key . '&var=' . $key . '&token='.$_SESSION['newtoken'].'">' . img_picto($langs->trans("Enabled"), 'switch_on') . '</a>';
 
                     print '</td>';
                     print '</td><td>';
