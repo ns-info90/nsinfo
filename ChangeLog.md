@@ -1,5 +1,8 @@
 # CHANGELOG NSINFO FOR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
+## 4.0.4 - 25/06/2025
+- Correction Bool3 (Token)
+
 ## 4.0.3 - 24/06/2025
 - Ajout d'un type bool (bool3) permettant de switcher une information
 
