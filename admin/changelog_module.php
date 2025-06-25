@@ -102,7 +102,7 @@ print '<a href="https://www.ns-info.fr" border=0 target="_blank"><img src="../im
 $modulePath = dol_buildpath('/'.strtolower($namemodule), 0);
 $pathoffile = $modulePath . '/ChangeLog.md';
 $moduleUrlPath = dol_buildpath('/'.strtolower($namemodule), 1);
-var_dump($pathoffile);
+
 $content = file_get_contents($pathoffile);
 @include_once DOL_DOCUMENT_ROOT . '/core/lib/parsemd.lib.php';
 $content = dolMd2Html($content, 'parsedown', array('doc/' => $moduleUrlPath . '/doc/'));
