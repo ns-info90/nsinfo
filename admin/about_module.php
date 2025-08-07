@@ -68,10 +68,11 @@ if ($namemodule == 'gmao') {
 else if (!$user->admin) accessforbidden();
 // Translations
 $langs->loadLangs(array("errors", "admin", "nsinfo@nsinfo", "{$namemodule}@{$namemodule}"));
-
+$version_nsinfo = getVersionModule('nsinfo');
 $modClass = new $nameMod($db);
 $constantLastVersion = !empty($modClass->getVersion()) ? $modClass->getVersion() : 'NC';
 $supportvalue = "/*****"."<br>";
+$supportvalue.= " * Module NSINFO ".$version_nsinfo."<br>";
 $supportvalue.= " * Module : ".$modClass->name." / ".$langs->trans('Module'.$modClass->name.'Name')."<br>";
 $supportvalue.= " * Module version : ".$constantLastVersion."<br>";
 $supportvalue.= " * Dolibarr version : ".DOL_VERSION."<br>";
@@ -123,7 +124,13 @@ print '<input name=message type="hidden" value="'.$supportvalue.'" />';
 print '<input name=type_code type="hidden" value="2" />';
 print '<input name=severity_code type="hidden" value="NORMAL" />';
 print '<input name=email type="hidden" value="'.$user->email.'" />';
+print '<B>';
 print '<a href="https://www.ns-info.fr" border=0 target="_blank"><img src="../img/nsinfo.png" width="200" align="right"></a>';
+print '</Br>';
+print '</Br>';
+print '</Br>';
+print '<div align="right">Module NSINFO '.$version_nsinfo.'</div>';
+print '</B>';
 print '<table width="100%"><tr>' . "\n";
 print '<td width="310px"><a href="https://www.ns-info.fr" border=0 target="_blank"><img src="../img/nsinfo.png" width="300" /><br>';
 print '<div style="text-align: right"><img src="../img/doli-pp.png" width="150" /></div>';
