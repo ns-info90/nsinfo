@@ -1,5 +1,9 @@
 # CHANGELOG NSINFO FOR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
+## 4.0.5 - 05/08/2025
+- Ajout du numéro de version du Framework dans la déclaration d'incident des autres modules
+- Ajout du numéro de version du Framework dans la page "A propos" des autres modules
+
 ## 4.0.4 - 25/06/2025
 - Correction Bool3 (Token)
 
